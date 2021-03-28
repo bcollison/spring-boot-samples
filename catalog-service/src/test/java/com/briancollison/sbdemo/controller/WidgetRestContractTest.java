@@ -17,6 +17,8 @@ import au.com.dius.pact.provider.junit5.PactVerificationContext;
 import au.com.dius.pact.provider.junit5.PactVerificationInvocationContextProvider;
 import au.com.dius.pact.provider.junitsupport.Provider;
 import au.com.dius.pact.provider.junitsupport.State;
+import au.com.dius.pact.provider.junitsupport.loader.PactBroker;
+import au.com.dius.pact.provider.junitsupport.loader.PactBrokerAuth;
 import au.com.dius.pact.provider.junitsupport.loader.PactFolder;
 import com.briancollison.sbdemo.CatalogApplication;
 import com.briancollison.sbdemo.dao.WidgetRepository;
@@ -31,7 +33,7 @@ import static org.mockito.Mockito.when;
 
 
 @Provider("catalog-service")
-@PactFolder("../published-pacts")
+@PactBroker(url = "http://localhost:7080")
 public class WidgetRestContractTest {
 
     @MockBean

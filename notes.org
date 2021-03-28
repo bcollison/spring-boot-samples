@@ -1,8 +1,17 @@
-* Next Steps [0/6]
-** TODO pact test storefront <-> catalog service
+* Next Steps [2/7]
+** DONE pact test storefront <-> catalog service
+CLOSED: [2021-03-28 Sun 11:26]
+:LOGBOOK:
+- State "DONE"       from "NEXT"       [2021-03-28 Sun 11:26]
+:END:
+** DONE Pact-Broker
+CLOSED: [2021-03-28 Sun 11:26]
+:LOGBOOK:
+- State "DONE"       from "NEXT"       [2021-03-28 Sun 11:26]
+:END:
+** TODO remove hardcoded pact broker url
 ** TODO message-based service with catalog service
 ** TODO pact test message-based service
-** TODO Pact-Broker
 ** TODO CI
 ** TODO js frontend
 * Pact

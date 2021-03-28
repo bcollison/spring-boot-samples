@@ -25,7 +25,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(PactConsumerTestExt.class)
 @PactTestFor(providerName = "catalog-service")
-@PactDirectory("../published-pacts")
 class WidgetServiceContractTest {
 
     @Pact(provider="catalog-service", consumer="storefront")
