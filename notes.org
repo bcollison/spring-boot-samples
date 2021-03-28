@@ -1,0 +1,7 @@
+* Next Steps [0/6]
+** TODO pact test storefront <-> catalog service
+** TODO message-based service with catalog service
+** TODO pact test message-based service
+** TODO Pact-Broker
+** TODO CI
+** TODO js frontend
