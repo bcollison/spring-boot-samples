@@ -37,4 +37,14 @@ public class Widget {
     public void setThumbnailUrl(String thumbnailUrl) {
         this.thumbnailUrl = thumbnailUrl;
     }
+
+    @Override
+    public String toString() {
+        return "Widget{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", thumbnailUrl='" + thumbnailUrl + '\'' +
+                '}';
+    }
 }
