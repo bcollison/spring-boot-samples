@@ -5,3 +5,7 @@
 ** TODO Pact-Broker
 ** TODO CI
 ** TODO js frontend
+* Pact
+** Broker
+Let's try using pact-broker in docker hub...
+and, they've given us a docker-compose sample, yay!
