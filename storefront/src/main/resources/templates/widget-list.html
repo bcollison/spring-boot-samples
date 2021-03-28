@@ -1,0 +1,16 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Widgets</title>
+</head>
+<body>
+<table>
+    <tr th:each="widget: ${widgets}">
+        <td th:text="${widget.id}" />
+        <td th:text="${widget.name}" />
+        <td th:text="${widget.description}" />
+    </tr>
+</table>
+</body>
+</html>
