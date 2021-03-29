@@ -63,6 +63,7 @@
 			<groupId>au.com.dius.pact.provider</groupId>
 			<artifactId>junit5</artifactId>
 			<version>4.2.2</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
