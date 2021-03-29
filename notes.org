@@ -18,3 +18,8 @@ CLOSED: [2021-03-28 Sun 11:26]
 ** Broker
 Let's try using pact-broker in docker hub...
 and, they've given us a docker-compose sample, yay!
+
+the provider can publish the verification via:
+#+begin_src shell
+mvn clean test -Dpact.provider.version=0.0.1 -Dpact.verifier.publishResults=true
+#+end_src
