@@ -2,12 +2,13 @@ package com.briancollison.sbdemo.service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import com.briancollison.sbdemo.model.Joke;
 
-@Component
+@Service
 public class JokeService {
     private final String defaultJoke;
     private final String jokeUrl;
