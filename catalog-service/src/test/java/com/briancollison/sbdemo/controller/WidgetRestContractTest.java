@@ -2,8 +2,6 @@ package com.briancollison.sbdemo.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestTemplate;
@@ -18,13 +16,10 @@ import au.com.dius.pact.provider.junit5.PactVerificationInvocationContextProvide
 import au.com.dius.pact.provider.junitsupport.Provider;
 import au.com.dius.pact.provider.junitsupport.State;
 import au.com.dius.pact.provider.junitsupport.loader.PactBroker;
-import au.com.dius.pact.provider.junitsupport.loader.PactBrokerAuth;
-import au.com.dius.pact.provider.junitsupport.loader.PactFolder;
 import com.briancollison.sbdemo.CatalogApplication;
 import com.briancollison.sbdemo.dao.WidgetRepository;
 import com.briancollison.sbdemo.model.Widget;
 
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(SpringExtension.class)
@@ -34,7 +29,7 @@ import static org.mockito.Mockito.when;
 
 @Provider("catalog-service")
 @PactBroker(url = "http://localhost:7080")
-public class WidgetRestContractTest {
+class WidgetRestContractTest {
 
     @MockBean
     WidgetRepository widgetRepository;
@@ -51,9 +46,9 @@ public class WidgetRestContractTest {
     }
 
     @State({"At least 5 Widgets Exist"})
-    public void widgetCountState() {
+    void widgetCountState() {
         List<Widget> widgetList = new ArrayList<>();
-        for (int i =0; i < 5; i++) {
+        for (int i = 0; i < 5; i++) {
             widgetList.add(buildWidget(i));
         }
         when(widgetRepository.findAll()).thenReturn(widgetList);
