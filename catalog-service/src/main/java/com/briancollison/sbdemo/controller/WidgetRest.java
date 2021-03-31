@@ -4,11 +4,13 @@ import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.briancollison.sbdemo.dao.WidgetRepository;
@@ -30,6 +32,7 @@ public class WidgetRest {
                       ModelMapper modelMapper) {
         this.widgetRepository = widgetRepository;
         this.jokeService = jokeService;
+        this.modelMapper = modelMapper;
     }
 
     @GetMapping
@@ -38,6 +41,7 @@ public class WidgetRest {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public Widget save(@RequestBody WidgetDto widgetDto) {
         Joke joke = jokeService.getJoke();
         if (widgetDto.getDescription() == null || widgetDto.getDescription().trim().equals("")) {

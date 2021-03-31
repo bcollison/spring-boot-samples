@@ -2,7 +2,6 @@ package com.briancollison.sbdemo.service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestClientException;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import com.briancollison.sbdemo.model.Joke;
@@ -26,8 +25,9 @@ public class JokeService {
                     .uri(jokeUrl)
                     .retrieve()
                     .bodyToMono(Joke.class)
+                    .onErrorStop()
                     .block();
-        } catch (RestClientException e) {
+        } catch (RuntimeException e) {
             joke = new Joke();
             joke.setValue(defaultJoke);
         }
