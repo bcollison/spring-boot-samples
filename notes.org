@@ -1,4 +1,4 @@
-* Next Steps [2/7]
+* Next Steps [2/8]
 ** DONE pact test storefront <-> catalog service
 CLOSED: [2021-03-28 Sun 11:26]
 :LOGBOOK:
@@ -9,6 +9,7 @@ CLOSED: [2021-03-28 Sun 11:26]
 :LOGBOOK:
 - State "DONE"       from "NEXT"       [2021-03-28 Sun 11:26]
 :END:
+** TODO use DTOs for the controller (modelmapper?)
 ** TODO remove hardcoded pact broker url
 ** TODO message-based service with catalog service
 ** TODO pact test message-based service
