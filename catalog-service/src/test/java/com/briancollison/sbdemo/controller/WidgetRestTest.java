@@ -46,12 +46,27 @@ class WidgetRestTest {
                 .andExpect(jsonPath("$", hasSize(5)));
     }
 
+    @Test
+    void test_succesful_find_by_id() throws Exception {
+        for (int i = 1; i < 6; i++) {
+            widgetRepository.save(buildWidget(i));
+        }
+
+        this.mockMvc
+                .perform(get("/widgets/1")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().is(200))
+                .andExpect(jsonPath("$.name", is("Name: 1")))
+                .andExpect(jsonPath("$.description", is("Description: 1")))
+                .andExpect(jsonPath("$.thumbnailUrl", is("ThumbnailUrl: 1")));
+    }
+
     private Widget buildWidget(int i) {
         Widget w = new Widget();
         w.setId(i);
         w.setName("Name: " + i);
         w.setDescription("Description: " + i);
-        w.setThumbnailUrl("Thumbnail: " + i);
+        w.setThumbnailUrl("ThumbnailUrl: " + i);
         return w;
     }
 

@@ -56,7 +56,7 @@ public class WidgetRest {
     }
 
     @GetMapping("/{id}")
-    public Widget findByProductById(@PathVariable("id") long id) {
+    public Widget findById(@PathVariable("id") long id) {
         Optional<Widget> byId = widgetRepository.findById(id);
         return byId.orElseThrow(IllegalArgumentException::new);
     }
