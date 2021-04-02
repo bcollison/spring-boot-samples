@@ -10,7 +10,8 @@ import com.briancollison.sbdemo.model.Joke;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class JokeServiceTest {
     public static MockWebServer mockWebServer;
