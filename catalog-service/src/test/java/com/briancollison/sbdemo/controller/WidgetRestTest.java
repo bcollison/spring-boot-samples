@@ -1,5 +1,6 @@
 package com.briancollison.sbdemo.controller;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -32,6 +33,11 @@ class WidgetRestTest {
 
     @Autowired
     WidgetRepository widgetRepository;
+
+    @BeforeEach
+    void setup() {
+        widgetRepository.deleteAll();
+    }
 
     @Test
     void test_succesful_get_all() throws Exception {

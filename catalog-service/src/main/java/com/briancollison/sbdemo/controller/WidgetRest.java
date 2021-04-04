@@ -2,7 +2,6 @@ package com.briancollison.sbdemo.controller;
 
 import java.util.Optional;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,25 +13,21 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.briancollison.sbdemo.dao.WidgetRepository;
-import com.briancollison.sbdemo.model.Joke;
 import com.briancollison.sbdemo.model.Widget;
 import com.briancollison.sbdemo.model.WidgetDto;
-import com.briancollison.sbdemo.service.JokeService;
+import com.briancollison.sbdemo.service.WidgetProcessor;
 
 @RestController
 @RequestMapping("/widgets")
 public class WidgetRest {
     WidgetRepository widgetRepository;
-    JokeService jokeService;
-    ModelMapper modelMapper;
+    WidgetProcessor widgetProcessor;
 
     @Autowired
     public WidgetRest(WidgetRepository widgetRepository,
-                      JokeService jokeService,
-                      ModelMapper modelMapper) {
+                      WidgetProcessor widgetProcessor) {
         this.widgetRepository = widgetRepository;
-        this.jokeService = jokeService;
-        this.modelMapper = modelMapper;
+        this.widgetProcessor = widgetProcessor;
     }
 
     @GetMapping
@@ -43,16 +38,7 @@ public class WidgetRest {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Widget save(@RequestBody WidgetDto widgetDto) {
-        Joke joke = jokeService.getJoke();
-        if (widgetDto.getDescription() == null || widgetDto.getDescription().trim().equals("")) {
-            widgetDto.setDescription(joke.getValue());
-        }
-        if (widgetDto.getThumbnailUrl() == null || widgetDto.getThumbnailUrl().trim().equals("")) {
-            widgetDto.setThumbnailUrl(joke.getIconUrl());
-        }
-        Widget widget = modelMapper.map(widgetDto, Widget.class);
-
-        return widgetRepository.save(widget);
+        return widgetProcessor.storeWidget(widgetDto);
     }
 
     @GetMapping("/{id}")

@@ -25,8 +25,6 @@ import static org.mockito.Mockito.when;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = CatalogApplication.class, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT,
         properties = "server.port=8080")
-
-
 @Provider("catalog-service")
 @PactBroker(url = "http://localhost:7080")
 class WidgetRestContractTest {

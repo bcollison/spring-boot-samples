@@ -8,11 +8,11 @@
 		<version>2.4.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.briancollison</groupId>
-	<artifactId>sbdemo</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
-	<name>sbdemo</name>
-	<description>Demo project for Spring Boot</description>
+	<groupId>com.briancollison.store</groupId>
+	<artifactId>widget-creator</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>widget-creator</name>
+	<description>Frontent client for creating widgets in the catalog</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -23,40 +23,25 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+                <dependency>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-amqp</artifactId>
+                </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-amqp</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.modelmapper</groupId>
-			<artifactId>modelmapper</artifactId>
-			<version>2.3.9</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>io.micrometer</groupId>
@@ -69,35 +54,17 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>au.com.dius.pact.consumer</groupId>
+			<artifactId>junit5</artifactId>
+			<version>4.2.2</version>
+		</dependency>
+		<dependency>
 			<groupId>au.com.dius.pact.provider</groupId>
 			<artifactId>junit5</artifactId>
 			<version>4.2.2</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>au.com.dius.pact.consumer</groupId>
-			<artifactId>junit5</artifactId>
-			<version>4.2.2</version>
-		</dependency>
 
-		<dependency>
-			<groupId>com.squareup.okhttp3</groupId>
-			<artifactId>mockwebserver</artifactId>
-			<version>4.9.1</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.squareup.okhttp3</groupId>
-			<artifactId>okhttp</artifactId>
-			<version>4.9.1</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.projectreactor</groupId>
-			<artifactId>reactor-test</artifactId>
-			<scope>test</scope>
-			<version>3.2.3.RELEASE</version>
-		</dependency>
 	</dependencies>
 
 	<build>
@@ -114,7 +81,6 @@
 					<pactBrokerUrl>http://localhost:7080</pactBrokerUrl>
 				</configuration>
 			</plugin>
-
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
