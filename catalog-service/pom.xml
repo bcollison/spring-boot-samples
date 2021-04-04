@@ -75,6 +75,12 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>au.com.dius.pact.consumer</groupId>
+			<artifactId>junit5</artifactId>
+			<version>4.2.2</version>
+		</dependency>
+
+		<dependency>
 			<groupId>com.squareup.okhttp3</groupId>
 			<artifactId>mockwebserver</artifactId>
 			<version>4.9.1</version>
@@ -100,6 +106,15 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>au.com.dius</groupId>
+				<artifactId>pact-jvm-provider-maven</artifactId>
+				<version>4.0.10</version>
+				<configuration>
+					<pactBrokerUrl>http://localhost:7080</pactBrokerUrl>
+				</configuration>
+			</plugin>
+
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
