@@ -24,6 +24,8 @@ the provider can publish the verification via:
 #+begin_src shell
 mvn clean test -Dpact.provider.version=0.0.1 -Dpact.verifier.publishResults=true
 #+end_src
+** Messaging
+It looks like they call the the message publisher the "provider", and the message listener the "consumer"... To me this seems a bit backwards (I'm not 100% sure that I'm right). The component that generates the message in this case is the provider (which is different than in the http pact tests), and the component that verifies is the consumer. To me, the provider/consumer relationship should not have changed, but new wording should have been used for messaging... i.e. "Publisher" (which is the consumer) and "Receiver" (which is the provider)"
 * Rabbitmq
 docker run --rm -it --hostname my-rabbit -p 15672:15672 -p 5672:5672 rabbitmq:3-management
 http://localhost:15672/
